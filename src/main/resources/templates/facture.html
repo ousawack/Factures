@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Factures</title>
+</head>
+<body>
+      <div th:if="${facture.size()!=0}">
+        <table border="2">
+        <thead>
+           <tr> 
+           <th>Numero</th>
+           <th>Montant</th>
+           <th>Etat</th>
+           <th>Date</th>
+           </tr>
+        </thead>
+         <tbody>
+           <tr th:each="f:${facture}"> 
+           <td th:text="${f.numero_fact}"></td>
+           <td th:text="${f.montant}"></td>
+           <td th:text="${f.etat}"></td>
+           <td th:text="${f.date_fact}"></td>
+           </tr>
+        </tbody>
+        
+        </table>
+      
+      </div>
+      <div th:unless="${facture.size()!=0}">
+      
+       <h1>Aucune Facture n'est enregistrée dans la table Facture!</h1> 
+      </div>
+
+
+</body>
+</html>
